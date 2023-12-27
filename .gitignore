@@ -1,0 +1,16 @@
+venv
+__pycache__
+.vscode
+db.sqlite3
+.env
+.flake8
+/tmp
+passenger_wsgi.py 
+/static_media
+static_media
+/static_files
+static_files 
+mydatabase
+file_name.sql
+__pycache__/
+.DS_Store
