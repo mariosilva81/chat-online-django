@@ -19,4 +19,8 @@ class Message(models.Model):
     user = models.ForeignKey("auth.User", on_delete=models.CASCADE)
 
     def __str__(self) -> str:
-        return "{}".format(self.user)
+        return "{} {} wrote '{}' at {}".format(
+            self.user.first_name,
+            self.user.last_name,
+            self.text, self.created_at
+        )
