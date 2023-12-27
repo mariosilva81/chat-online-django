@@ -7,7 +7,7 @@ def home(request):
 
     return render(
         request,
-        "index.html",
+        "home.html",
         {
             "messages": messages,
         },
