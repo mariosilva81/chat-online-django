@@ -3,7 +3,7 @@ from django.db import models
 
 class Room(models.Model):
     title = models.CharField(max_length=255)
-    messages = models.ManyToManyField("Message")
+    messages = models.ManyToManyField("Message", blank=True)
     created_at = models.DateTimeField(auto_now_add=True)
 
     user = models.ForeignKey("auth.User", on_delete=models.CASCADE)
