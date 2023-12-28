@@ -1,4 +1,12 @@
-{% extends "base.html" %} {% block content %}
+{% extends "base.html" %} 
+
+{% load static %} 
+
+{% block css %}
+<link rel="stylesheet" href="{% static 'css/index.css' %}" />
+{% endblock %} 
+
+{% block content %}
 <div class="d-flex h-100">
   <div class="chat-rooms h-100 w-25">
     <div class="rooms m-3">
@@ -8,10 +16,8 @@
           <i class="bi bi-plus-circle-fill text-primary"></i>
         </button>
       </div>
-      <ul class="list-group shadow border-0">
-        {% for room in rooms %}
-        <li class="list-group-item">{{room.title}}</li>
-        {% endfor %}
+      <ul class="list-rooms list-group shadow border-0">
+        {% include "list-rooms.html" %}
       </ul>
     </div>
   </div>
@@ -19,15 +25,10 @@
     <div class="messages card m-3 p-3 h-75 shadow border-0 overflow-scroll">
       {% include "list-messages.html" %}
     </div>
-    <div class="send-message card m-3 shadow border-0">
-      <form>
-        <input
-          type="text"
-          class="form-control border-1 fs-5"
-          placeholder="Escreva uma mensagem"
-        />
-      </form>
-    </div>
   </div>
 </div>
+{% endblock %} 
+
+{% block js %}
+<script defer src="{% static 'js/index.js' %}"></script>
 {% endblock %}
