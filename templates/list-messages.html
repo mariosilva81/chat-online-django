@@ -1,29 +1,24 @@
-<ul class="unique-message-container list-group list-group-flush">  
+<ul class="unique-message-container list-group list-group-flush">
   {% if not object %}
-      <p class="text-center">Selecione uma sala ao lado</p>
+    <div class="d-flex align-items-center justify-content-center vh-100">
+      <b><p class="text-center d-flex align-items-center justify-content-center vh-100">Selecione uma sala ao lado</p></b>
+    </div>
   {% else %}
-      {% if object.messages.count > 0 %}    
-        {% for message in object.messages.all %}
-          <li class="list-group-item border-bottom-0">
-            <div class="d-flex justify-content-between">
-              <div class="content">
-                <b>@{{message.user.username}}</b>{{message.text}}
-              </div>
-              <div class="time">{{message.created_at}}</div>
+    {% if object.messages.count > 0 %}    
+      {% for message in object.messages.all %}
+        <li class="list-group-item border-bottom-0">
+          <div class="d-flex justify-content-between">
+            <div class="content">
+              <b>@{{message.user.username}} </b>{{message.text}}
             </div>
-          </li>
-        {% endfor %}
-        <div class="send-message card m-3 shadow border-0">
-          <form>
-            <input
-              type="text"
-              class="form-control border-1 fs-5"
-              placeholder="Escreva uma mensagem"
-            />
-          </form>
-        </div>
-      {% else %}
-          <p class="text-center">Nenhuma mensagem enviada</p>
-      {% endif %}
+            <div class="time">{{message.created_at}}</div>
+          </div>
+        </li>
+      {% endfor %}
+    {% else %}
+      <div class="d-flex align-items-center justify-content-center vh-100">
+        <b><p class="text-center">Nenhuma mensagem enviada</p></b>
+      </div>
+    {% endif %}
   {% endif %}
 </ul>

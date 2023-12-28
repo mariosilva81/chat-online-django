@@ -1,10 +1,10 @@
-{% extends "base.html" %} 
+{% extends "base.html" %}
 
-{% load static %} 
+{% load static %}
 
 {% block css %}
 <link rel="stylesheet" href="{% static 'css/index.css' %}" />
-{% endblock %} 
+{% endblock %}
 
 {% block content %}
 <div class="d-flex h-100">
@@ -21,13 +21,23 @@
       </ul>
     </div>
   </div>
-  <div class="chat-messages h-100 w-75">
+  <div class="chat-messages vh-100 w-75">
     <div class="messages card m-3 p-3 h-75 shadow border-0 overflow-scroll">
       {% include "list-messages.html" %}
     </div>
+      <div class="send-message card m-3 shadow border-0">
+        <form>
+          <input
+            type="text"
+            class="form-control border-1 fs-6"
+            placeholder="Escreva uma mensagem"
+          />
+        </form>
+      </div>
+    </div>
   </div>
 </div>
-{% endblock %} 
+{% endblock %}
 
 {% block js %}
 <script defer src="{% static 'js/index.js' %}"></script>
