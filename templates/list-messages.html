@@ -11,7 +11,7 @@
             <div class="content">
               <b>@{{message.user.username}} </b>{{message.text}}
             </div>
-            <div class="time">{{message.created_at}}</div>
+            <div class="time">{{message.created_at|timesince}}</div>
           </div>
         </li>
       {% endfor %}
