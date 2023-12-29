@@ -1,24 +1,11 @@
 <ul class="unique-message-container list-group list-group-flush">
-  {% if not object %}
-    <div class="d-flex align-items-center justify-content-center vh-100">
-      <b><p class="text-center d-flex align-items-center justify-content-center vh-100">Selecione uma sala ao lado</p></b>
-    </div>
+  {% if object.messages.count > 0 %}    
+    {% for message in object.messages.all %}
+      {% include "message.html" %}
+    {% endfor %}
   {% else %}
-    {% if object.messages.count > 0 %}    
-      {% for message in object.messages.all %}
-        <li class="list-group-item border-bottom-0">
-          <div class="d-flex justify-content-between">
-            <div class="content">
-              <b>@{{message.user.username}} </b>{{message.text}}
-            </div>
-            <div class="time">{{message.created_at|timesince}}</div>
-          </div>
-        </li>
-      {% endfor %}
-    {% else %}
-      <div class="d-flex align-items-center justify-content-center vh-100">
-        <b><p class="text-center">Nenhuma mensagem enviada</p></b>
-      </div>
-    {% endif %}
+    <div class="d-flex align-items-center justify-content-center vh-100">
+      <b><p class="text-center">Nenhuma mensagem enviada</p></b>
+    </div>
   {% endif %}
 </ul>

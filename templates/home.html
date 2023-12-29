@@ -14,7 +14,12 @@
     <div class="rooms m-3">
       <div class="d-flex justify-content-between">
         <h3>New<span class="text-primary">Chat</span></h3>
-        <button class="btn btn-transparent mb-2">
+        <button
+          type="button"
+          class="btn btn-transparent mb-2"
+          data-bs-toggle="modal"
+          data-bs-target="#staticBackdrop"
+        >
           <i class="bi bi-plus-circle-fill text-primary"></i>
         </button>
       </div>
@@ -24,21 +29,18 @@
     </div>
   </div>
   <div class="chat-messages vh-100 w-75">
-    <div class="messages card m-3 p-3 h-75 shadow border-0 overflow-scroll">
+    <div class="messages card m-3 p-3 h-75 shadow border-0 overflow-auto">
       {% include "list-messages.html" %}
     </div>
       <div class="send-message card m-3 shadow border-0">
-        <form>
-          <input
-            type="text"
-            class="form-control border-1 fs-6"
-            placeholder="Escreva uma mensagem"
-          />
-        </form>
+        {% include "send-message.html" %}
       </div>
     </div>
   </div>
 </div>
+
+{% include "create-room.html" %}
+
 {% endblock %}
 
 {% block js %}
